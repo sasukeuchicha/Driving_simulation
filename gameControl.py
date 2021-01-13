@@ -80,13 +80,11 @@ while True:
 
     # find the contours(blue object's boundary) in the left and right frame to find the center of the object
     # syntax: (img,mode,method)
-    cnts_up = cv2.findContours(up_mask.copy(), cv2.RETR_EXTERNAL,
-                               cv2.CHAIN_APPROX_SIMPLE)
+    cnts_up = cv2.findContours(up_mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts_up = imutils.grab_contours(cnts_up)
     center_up = None
 
-    cnts_down = cv2.findContours(down_mask.copy(), cv2.RETR_EXTERNAL,
-                                 cv2.CHAIN_APPROX_SIMPLE)
+    cnts_down = cv2.findContours(down_mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cnts_down = imutils.grab_contours(cnts_down)
     center_down = None
 
@@ -107,8 +105,7 @@ while True:
         # only proceed if the radius meets a minimum size
         if radius > circle_radius:
             # draw the circle and centroid on the frame,
-            cv2.circle(frame, (int(x), int(y)), int(radius),
-                       (0, 255, 255), 2)
+            cv2.circle(frame, (int(x), int(y)), int(radius), (0, 255, 255), 2)
             cv2.circle(frame, center_up, 5, (0, 0, 255), -1)
 
             # TOP LEFT is "A" key pressed and TOP RIGHT is for "D" key pressed
